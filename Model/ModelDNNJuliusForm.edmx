@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DotNetNukeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="js_DNNJuliusForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoNiu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Factibilidad" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreRazonSocial" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="TipoDocumentoSolicitante" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DocumentoIdentidadSolicitante" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DireccionSolicitante" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DepartamentoSolicitante" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MunicipioSolicitante" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelefonoSolicitante" Type="nvarchar" MaxLength="20" />
+          <Property Name="CelularSolicitante" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmailSolicitante" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NombrePropietario" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="TipoDocumentoPropietario" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DocumentoIdentidadPropietario" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DireccionPropietario" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DepartamentoPropietario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MunicipioPropietario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelefonoPropietario" Type="nvarchar" MaxLength="20" />
+          <Property Name="CelularPropietario" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmailPropietario" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NombreObra" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DireccionObra" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="EstratoObra" Type="int" />
+          <Property Name="NombreIngeniero" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DocumentoIdentidadIngeniero" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="MatriculaProfesionalIngeniero" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Respuesta" Type="bit" />
+          <Property Name="Observaciones" Type="nvarchar" MaxLength="4000" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="js_DNNJuliusFormArchivo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DNNJuliusFormId" Type="bigint" />
+          <Property Name="RutaFisica" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="Fuente" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__js_DNNJul__DNNJu__32D66FBE">
+          <End Role="js_DNNJuliusForm" Type="Self.js_DNNJuliusForm" Multiplicity="0..1" />
+          <End Role="js_DNNJuliusFormArchivo" Type="Self.js_DNNJuliusFormArchivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="js_DNNJuliusForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="js_DNNJuliusFormArchivo">
+              <PropertyRef Name="DNNJuliusFormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DotNetNukeModelStoreContainer">
+          <EntitySet Name="js_DNNJuliusForm" EntityType="Self.js_DNNJuliusForm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="js_DNNJuliusFormArchivo" EntityType="Self.js_DNNJuliusFormArchivo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__js_DNNJul__DNNJu__32D66FBE" Association="Self.FK__js_DNNJul__DNNJu__32D66FBE">
+            <End Role="js_DNNJuliusForm" EntitySet="js_DNNJuliusForm" />
+            <End Role="js_DNNJuliusFormArchivo" EntitySet="js_DNNJuliusFormArchivo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DotNetNukeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="js_DNNJuliusForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoNiu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Factibilidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreRazonSocial" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipoDocumentoSolicitante" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DocumentoIdentidadSolicitante" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DireccionSolicitante" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DepartamentoSolicitante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MunicipioSolicitante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelefonoSolicitante" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CelularSolicitante" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailSolicitante" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombrePropietario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipoDocumentoPropietario" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DocumentoIdentidadPropietario" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DireccionPropietario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DepartamentoPropietario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MunicipioPropietario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelefonoPropietario" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CelularPropietario" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailPropietario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreObra" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DireccionObra" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EstratoObra" Type="Int32" />
+          <Property Name="NombreIngeniero" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DocumentoIdentidadIngeniero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MatriculaProfesionalIngeniero" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Respuesta" Type="Boolean" />
+          <Property Name="Observaciones" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="js_DNNJuliusFormArchivo" Relationship="Self.FK__js_DNNJul__DNNJu__32D66FBE" FromRole="js_DNNJuliusForm" ToRole="js_DNNJuliusFormArchivo" />
+        </EntityType>
+        <EntityType Name="js_DNNJuliusFormArchivo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DNNJuliusFormId" Type="Int64" />
+          <Property Name="RutaFisica" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fuente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="js_DNNJuliusForm" Relationship="Self.FK__js_DNNJul__DNNJu__32D66FBE" FromRole="js_DNNJuliusFormArchivo" ToRole="js_DNNJuliusForm" />
+        </EntityType>
+        <Association Name="FK__js_DNNJul__DNNJu__32D66FBE">
+          <End Role="js_DNNJuliusForm" Type="Self.js_DNNJuliusForm" Multiplicity="0..1" />
+          <End Role="js_DNNJuliusFormArchivo" Type="Self.js_DNNJuliusFormArchivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="js_DNNJuliusForm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="js_DNNJuliusFormArchivo">
+              <PropertyRef Name="DNNJuliusFormId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DotNetNukeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="js_DNNJuliusForm" EntityType="Self.js_DNNJuliusForm" />
+          <EntitySet Name="js_DNNJuliusFormArchivo" EntityType="Self.js_DNNJuliusFormArchivo" />
+          <AssociationSet Name="FK__js_DNNJul__DNNJu__32D66FBE" Association="Self.FK__js_DNNJul__DNNJu__32D66FBE">
+            <End Role="js_DNNJuliusForm" EntitySet="js_DNNJuliusForm" />
+            <End Role="js_DNNJuliusFormArchivo" EntitySet="js_DNNJuliusFormArchivo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DotNetNukeModelStoreContainer" CdmEntityContainer="DotNetNukeEntities">
+          <EntitySetMapping Name="js_DNNJuliusForm">
+            <EntityTypeMapping TypeName="DotNetNukeModel.js_DNNJuliusForm">
+              <MappingFragment StoreEntitySet="js_DNNJuliusForm">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CodigoNiu" ColumnName="CodigoNiu" />
+                <ScalarProperty Name="Factibilidad" ColumnName="Factibilidad" />
+                <ScalarProperty Name="NombreRazonSocial" ColumnName="NombreRazonSocial" />
+                <ScalarProperty Name="TipoDocumentoSolicitante" ColumnName="TipoDocumentoSolicitante" />
+                <ScalarProperty Name="DocumentoIdentidadSolicitante" ColumnName="DocumentoIdentidadSolicitante" />
+                <ScalarProperty Name="DireccionSolicitante" ColumnName="DireccionSolicitante" />
+                <ScalarProperty Name="DepartamentoSolicitante" ColumnName="DepartamentoSolicitante" />
+                <ScalarProperty Name="MunicipioSolicitante" ColumnName="MunicipioSolicitante" />
+                <ScalarProperty Name="TelefonoSolicitante" ColumnName="TelefonoSolicitante" />
+                <ScalarProperty Name="CelularSolicitante" ColumnName="CelularSolicitante" />
+                <ScalarProperty Name="EmailSolicitante" ColumnName="EmailSolicitante" />
+                <ScalarProperty Name="NombrePropietario" ColumnName="NombrePropietario" />
+                <ScalarProperty Name="TipoDocumentoPropietario" ColumnName="TipoDocumentoPropietario" />
+                <ScalarProperty Name="DocumentoIdentidadPropietario" ColumnName="DocumentoIdentidadPropietario" />
+                <ScalarProperty Name="DireccionPropietario" ColumnName="DireccionPropietario" />
+                <ScalarProperty Name="DepartamentoPropietario" ColumnName="DepartamentoPropietario" />
+                <ScalarProperty Name="MunicipioPropietario" ColumnName="MunicipioPropietario" />
+                <ScalarProperty Name="TelefonoPropietario" ColumnName="TelefonoPropietario" />
+                <ScalarProperty Name="CelularPropietario" ColumnName="CelularPropietario" />
+                <ScalarProperty Name="EmailPropietario" ColumnName="EmailPropietario" />
+                <ScalarProperty Name="NombreObra" ColumnName="NombreObra" />
+                <ScalarProperty Name="DireccionObra" ColumnName="DireccionObra" />
+                <ScalarProperty Name="EstratoObra" ColumnName="EstratoObra" />
+                <ScalarProperty Name="NombreIngeniero" ColumnName="NombreIngeniero" />
+                <ScalarProperty Name="DocumentoIdentidadIngeniero" ColumnName="DocumentoIdentidadIngeniero" />
+                <ScalarProperty Name="MatriculaProfesionalIngeniero" ColumnName="MatriculaProfesionalIngeniero" />
+                <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="js_DNNJuliusFormArchivo">
+            <EntityTypeMapping TypeName="DotNetNukeModel.js_DNNJuliusFormArchivo">
+              <MappingFragment StoreEntitySet="js_DNNJuliusFormArchivo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DNNJuliusFormId" ColumnName="DNNJuliusFormId" />
+                <ScalarProperty Name="RutaFisica" ColumnName="RutaFisica" />
+                <ScalarProperty Name="Fuente" ColumnName="Fuente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
